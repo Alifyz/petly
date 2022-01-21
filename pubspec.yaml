@@ -28,4 +28,4 @@ flutter:
   generate: true
 
   assets:
-    - assets/video/dog.mp4
+    - assets/video/dog-rendered.mp4

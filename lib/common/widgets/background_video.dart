@@ -14,7 +14,8 @@ class BackgroundVideoState extends State<BackgroundVideo> {
 
   @override
   void initState() {
-    _playerController = VideoPlayerController.asset('assets/video/dog.mp4');
+    _playerController =
+        VideoPlayerController.asset('assets/video/dog-rendered.mp4');
 
     _playerController
       ..setLooping(true)
