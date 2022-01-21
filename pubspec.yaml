@@ -14,6 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+  video_player: ^2.2.13
 
 dev_dependencies:
   bloc_test: ^9.0.2
@@ -25,3 +26,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+  assets:
+    - assets/video/dog.mp4
