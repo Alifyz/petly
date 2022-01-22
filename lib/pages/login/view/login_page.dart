@@ -72,11 +72,16 @@ class LoginPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       PetlyButton(
+                        icon: const Icon(Icons.pets_sharp),
                         onPressed: () {},
                         title: 'Login with Google',
                         primary: true,
                       ),
                       PetlyButton(
+                        icon: const Icon(
+                          Icons.account_circle,
+                          color: Colors.black,
+                        ),
                         onPressed: () {},
                         title: 'Login with Facebook',
                       ),
