@@ -6,8 +6,6 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter/material.dart';
-// import 'package:flutter_localizations/flutter_localizations.dart';
-// import 'package:pet_project/l10n/l10n.dart';
 import 'package:pet_project/pages/login/login.dart';
 
 class App extends StatelessWidget {
@@ -22,11 +20,6 @@ class App extends StatelessWidget {
           accentColor: const Color(0xFF13B9FF),
         ),
       ),
-      // localizationsDelegates: const [
-      //   AppLocalizations.delegate,
-      //   GlobalMaterialLocalizations.delegate,
-      // ],
-      // supportedLocales: AppLocalizations.supportedLocales,
       home: const LoginPage(),
     );
   }
