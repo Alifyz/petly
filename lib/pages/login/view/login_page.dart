@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
 import 'package:pet_project/common/widgets/background_video.dart';
+import 'package:pet_project/common/widgets/buttons.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -56,6 +57,7 @@ class LoginPage extends StatelessWidget {
                               'A safe place for Pets\nand owners :)',
                               style: PetlyTextTheme.subtitle.copyWith(
                                 color: Colors.white,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
@@ -65,18 +67,29 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 32),
+                  padding: const EdgeInsets.only(bottom: 48),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ElevatedButton(
+                      PetlyButton(
                         onPressed: () {},
-                        child: const Text('Login with Google'),
+                        title: 'Login with Google',
+                        primary: true,
                       ),
-                      ElevatedButton(
+                      PetlyButton(
                         onPressed: () {},
-                        child: const Text('Login with Facebook'),
-                      )
+                        title: 'Login with Facebook',
+                      ),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      Text(
+                        'Privacy Policy and Terms and Conditions',
+                        style: PetlyTextTheme.headline.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
