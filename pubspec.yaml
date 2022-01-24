@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
-  video_player: ^2.2.13
   google_fonts: ^2.2.0
+  video_player: ^2.2.13
 
 dev_dependencies:
   bloc_test: ^9.0.2
