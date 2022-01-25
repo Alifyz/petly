@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
 import 'package:pet_project/common/widgets/background_video.dart';
 import 'package:pet_project/common/widgets/buttons.dart';
+import 'package:pet_project/pages/pages_helper.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final navigator = Navigator.of(context);
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -73,7 +75,9 @@ class LoginPage extends StatelessWidget {
                     children: [
                       PetlyButton(
                         icon: const Icon(Icons.pets_sharp),
-                        onPressed: () {},
+                        onPressed: () => navigator.pushNamed(
+                          PagesHelper.homePage,
+                        ),
                         title: 'Login with Google',
                         primary: true,
                       ),
@@ -82,7 +86,9 @@ class LoginPage extends StatelessWidget {
                           Icons.account_circle,
                           color: Colors.black,
                         ),
-                        onPressed: () {},
+                        onPressed: () => navigator.pushNamed(
+                          PagesHelper.homePage,
+                        ),
                         title: 'Login with Facebook',
                       ),
                       const SizedBox(

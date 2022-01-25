@@ -6,7 +6,9 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter/material.dart';
+import 'package:pet_project/pages/home/home.dart';
 import 'package:pet_project/pages/login/login.dart';
+import 'package:pet_project/pages/pages_helper.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -20,7 +22,11 @@ class App extends StatelessWidget {
           accentColor: const Color(0xFF13B9FF),
         ),
       ),
-      home: const LoginPage(),
+      initialRoute: PagesHelper.loginPage,
+      routes: {
+        PagesHelper.loginPage: (context) => const LoginPage(),
+        PagesHelper.homePage: (context) => const HomePage(),
+      },
     );
   }
 }
