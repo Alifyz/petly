@@ -22,7 +22,7 @@ class PetListItem extends StatelessWidget {
         child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: Container(
                 width: 48,
                 height: 48,
