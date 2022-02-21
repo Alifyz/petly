@@ -69,34 +69,13 @@ class HomePage extends StatelessWidget {
                             right: 8,
                           ),
                           child: SizedBox(
-                            height: 56,
+                            height: 72,
                             child: ListView(
                               scrollDirection: Axis.horizontal,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Container(
-                                    width: 64,
-                                    height: 64,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Container(
-                                    width: 64,
-                                    height: 64,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Container(
-                                    width: 64,
-                                    height: 64,
-                                    color: Colors.white,
-                                  ),
-                                ),
+                              children: const [
+                                GlobalActionWidget(),
+                                GlobalActionWidget(),
+                                GlobalActionWidget(),
                               ],
                             ),
                           ),
@@ -116,16 +95,92 @@ class HomePage extends StatelessWidget {
                 ),
                 child: ListView(
                   children: const [
-                    ListTile(
-                      leading: Text('Dog'),
-                    ),
-                    ListTile(
-                      leading: Text('cat'),
-                    ),
+                    PetListItem(),
+                    PetListItem(),
+                    PetListItem(),
+                    PetListItem(),
+                    PetListItem(),
                   ],
                 ),
               ),
             )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PetListItem extends StatelessWidget {
+  const PetListItem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: Container(
+        height: 72,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Container(
+              width: 48,
+              height: 48,
+              color: Colors.red,
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Dog'),
+                  Text('Nice doggo'),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Icon(Icons.favorite),
+            )
+          ],
+        ),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black26,
+            width: 1.5,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+    );
+  }
+}
+
+class GlobalActionWidget extends StatelessWidget {
+  const GlobalActionWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Container(
+        width: 64,
+        height: 64,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const [
+            Icon(Icons.pets),
+            Text('Dog'),
           ],
         ),
       ),
