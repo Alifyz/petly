@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
                       bottom: Radius.circular(24),
                     ),
                   ),
-                  height: mediaQuery.size.height * 0.40,
+                  height: mediaQuery.size.height * 0.35,
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,8 +122,14 @@ class PetListItem extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       child: Container(
         height: 72,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black26,
+            width: 1.5,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Row(
-          mainAxisSize: MainAxisSize.max,
           children: [
             Container(
               width: 48,
@@ -134,24 +140,17 @@ class PetListItem extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   Text('Dog'),
                   Text('Nice doggo'),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(12),
+            const Padding(
+              padding: EdgeInsets.all(12),
               child: Icon(Icons.favorite),
             )
           ],
-        ),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black26,
-            width: 1.5,
-          ),
-          borderRadius: BorderRadius.circular(8),
         ),
       ),
     );
