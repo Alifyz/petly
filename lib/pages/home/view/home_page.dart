@@ -108,23 +108,24 @@ class HomePage extends StatelessWidget {
               ],
             ),
             Expanded(
-                child: Padding(
-              padding: const EdgeInsets.only(
-                top: 16,
-                left: 8,
-                right: 8,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 16,
+                  left: 8,
+                  right: 8,
+                ),
+                child: ListView(
+                  children: const [
+                    ListTile(
+                      leading: Text('Dog'),
+                    ),
+                    ListTile(
+                      leading: Text('cat'),
+                    ),
+                  ],
+                ),
               ),
-              child: ListView(
-                children: const [
-                  ListTile(
-                    leading: Text('Dog'),
-                  ),
-                  ListTile(
-                    leading: Text('cat'),
-                  ),
-                ],
-              ),
-            ))
+            )
           ],
         ),
       ),
