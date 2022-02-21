@@ -27,3 +27,6 @@ flutter:
 
   assets:
     - assets/video/dog-rendered.mp4
+    - assets/images/bird.png
+    - assets/images/cat.png
+    - assets/images/dog.png
