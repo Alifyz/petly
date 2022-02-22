@@ -6,6 +6,7 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter/material.dart';
+import 'package:pet_project/pages/details/details.dart';
 import 'package:pet_project/pages/home/home.dart';
 import 'package:pet_project/pages/login/login.dart';
 import 'package:pet_project/pages/pages_helper.dart';
@@ -26,6 +27,7 @@ class App extends StatelessWidget {
       routes: {
         PagesHelper.loginPage: (context) => const LoginPage(),
         PagesHelper.homePage: (context) => const HomePage(),
+        PagesHelper.detailsPage: (context) => const DetailsPage()
       },
     );
   }
