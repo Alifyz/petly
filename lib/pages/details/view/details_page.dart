@@ -5,6 +5,21 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final mediaQuery = MediaQuery.of(context);
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        icon: const Icon(Icons.favorite),
+        label: const Text('Adopt'),
+      ),
+      body: Column(
+        children: [
+          Container(
+            height: mediaQuery.size.height * 0.5,
+            color: Colors.red,
+          )
+        ],
+      ),
+    );
   }
 }
