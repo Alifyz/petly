@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/helpers.dart';
+import 'package:pet_project/common/theme/text_theme.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({Key? key}) : super(key: key);
@@ -38,20 +39,39 @@ class DetailsPage extends StatelessWidget {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text('Pet Name'),
-                Text('2 years old'),
+              children: [
+                Text(
+                  'Pet Name',
+                  style: PetlyTextTheme.h1.copyWith(
+                    fontSize: 21,
+                  ),
+                ),
+                Text(
+                  '2 years old',
+                  style: PetlyTextTheme.headline.copyWith(
+                    fontSize: 14,
+                    color: Colors.black,
+                    letterSpacing: 0.1,
+                  ),
+                ),
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               left: 16,
               right: 16,
               top: 4,
               bottom: 4,
             ),
-            child: Text('Pet Breed'),
+            child: Text(
+              'Pet Breed',
+              style: PetlyTextTheme.subtitle.copyWith(
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+                color: Colors.black45,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -59,9 +79,18 @@ class DetailsPage extends StatelessWidget {
               right: 16,
             ),
             child: Row(
-              children: const [
-                Icon(Icons.place),
-                Text('Brazil'),
+              children: [
+                const Icon(
+                  Icons.place,
+                  color: Colors.redAccent,
+                ),
+                Text(
+                  'São Paulo, BR',
+                  style: PetlyTextTheme.subtitle.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
               ],
             ),
           ),
@@ -76,7 +105,22 @@ class DetailsPage extends StatelessWidget {
                 Container(
                   width: 56,
                   height: 56,
-                  color: Colors.red,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      8,
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                      8,
+                    ),
+                    child: Image(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(
+                        netwworkImageAddressExample,
+                      ),
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
