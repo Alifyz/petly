@@ -12,6 +12,11 @@ class PetlyTextTheme {
     fontSize: 16,
     letterSpacing: 0.6,
   );
+  static TextStyle body1 = GoogleFonts.lato(
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
+    letterSpacing: 0.2,
+  );
   static TextStyle headline = GoogleFonts.lato(
     fontSize: 12,
     letterSpacing: 0.6,

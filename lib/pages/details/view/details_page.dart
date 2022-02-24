@@ -126,22 +126,35 @@ class DetailsPage extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 8),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('Jhon Doe'),
-                      Text('Owner'),
+                    children: [
+                      Text(
+                        'Jhon Doe',
+                        style: PetlyTextTheme.h1.copyWith(
+                          fontSize: 14,
+                        ),
+                      ),
+                      Text(
+                        'Owner',
+                        style: PetlyTextTheme.subtitle.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
                     ],
                   ),
                 )
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               left: 16,
               right: 16,
               top: 8,
             ),
-            child: Text('Lore ipsum, lore, Lore ipsum, lor, Lore ipsum, lor'),
+            child: Text(
+              'Lore ipsum, lore, Lore ipsum, lor, Lore ipsum, lor',
+              style: PetlyTextTheme.body1,
+            ),
           )
         ],
       ),
