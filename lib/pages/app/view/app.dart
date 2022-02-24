@@ -6,6 +6,7 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter/material.dart';
+import 'package:pet_project/pages/details/details.dart';
 import 'package:pet_project/pages/home/home.dart';
 import 'package:pet_project/pages/login/login.dart';
 import 'package:pet_project/pages/pages_helper.dart';
@@ -17,15 +18,16 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
+        appBarTheme: const AppBarTheme(color: Colors.red),
         colorScheme: ColorScheme.fromSwatch(
-          accentColor: const Color(0xFF13B9FF),
+          accentColor: Colors.redAccent,
         ),
       ),
       initialRoute: PagesHelper.loginPage,
       routes: {
         PagesHelper.loginPage: (context) => const LoginPage(),
         PagesHelper.homePage: (context) => const HomePage(),
+        PagesHelper.detailsPage: (context) => const DetailsPage()
       },
     );
   }
