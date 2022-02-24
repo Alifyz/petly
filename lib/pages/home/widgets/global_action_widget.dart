@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
+import 'package:pet_project/pages/pages_helper.dart';
 
 class GlobalActionWidget extends StatelessWidget {
   const GlobalActionWidget({
@@ -13,41 +14,47 @@ class GlobalActionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Container(
-        width: 64,
-        height: 64,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26.withOpacity(0.2),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, 2),
-            )
-          ],
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(8),
+    final navigator = Navigator.of(context);
+    return GestureDetector(
+      onTap: () => navigator.pushNamed(
+        PagesHelper.newPetPage,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Container(
+          width: 64,
+          height: 64,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26.withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, 2),
+              )
+            ],
+            color: Colors.white,
+            borderRadius: const BorderRadius.all(
+              Radius.circular(8),
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Image(
-              image: actionImage,
-              height: 24,
-              width: 24,
-            ),
-            Text(
-              actionName,
-              style: PetlyTextTheme.subtitle.copyWith(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Image(
+                image: actionImage,
+                height: 24,
+                width: 24,
               ),
-            ),
-          ],
+              Text(
+                actionName,
+                style: PetlyTextTheme.subtitle.copyWith(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
