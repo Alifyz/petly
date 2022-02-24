@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_project/pages/details/details.dart';
 import 'package:pet_project/pages/home/home.dart';
 import 'package:pet_project/pages/login/login.dart';
+import 'package:pet_project/pages/new_pet/new_pet.dart';
 import 'package:pet_project/pages/pages_helper.dart';
 
 class App extends StatelessWidget {
@@ -27,7 +28,8 @@ class App extends StatelessWidget {
       routes: {
         PagesHelper.loginPage: (context) => const LoginPage(),
         PagesHelper.homePage: (context) => const HomePage(),
-        PagesHelper.detailsPage: (context) => const DetailsPage()
+        PagesHelper.detailsPage: (context) => const DetailsPage(),
+        PagesHelper.newPetPage: (context) => const NewPetPage()
       },
     );
   }
