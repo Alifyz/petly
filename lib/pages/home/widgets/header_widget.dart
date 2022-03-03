@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_project/common/helpers.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
 import 'package:pet_project/pages/home/widgets/global_action_widget.dart';
+import 'package:pet_project/pages/pages_helper.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({
@@ -54,6 +55,7 @@ class UserHeadline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigator = Navigator.of(context);
     return Row(
       children: [
         CircleAvatar(
@@ -71,12 +73,25 @@ class UserHeadline extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const Expanded(
+        Expanded(
           child: Align(
             alignment: Alignment.topRight,
-            child: Icon(
-              Icons.menu,
-              color: Colors.white,
+            child: GestureDetector(
+              onTap: () => navigator.pushNamed(PagesHelper.newPetPage),
+              child: Column(
+                children: [
+                  const Icon(
+                    Icons.pets,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    'New Pet',
+                    style: PetlyTextTheme.body1.copyWith(
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         )
