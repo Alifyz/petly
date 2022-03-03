@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_project/common/theme/text_theme.dart';
 
 class NewPetPage extends StatelessWidget {
   const NewPetPage({Key? key}) : super(key: key);
@@ -14,12 +15,20 @@ class NewPetPage extends StatelessWidget {
           onTap: navigator.pop,
           child: const Icon(Icons.close),
         ),
-        title: const Text('New pet'),
+        title: Text(
+          'New pet',
+          style: PetlyTextTheme.h1.copyWith(
+            fontSize: 16,
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
         icon: const Icon(Icons.save),
-        label: const Text('Save'),
+        label: Text(
+          'Save',
+          style: PetlyTextTheme.body1,
+        ),
       ),
       body: ListView(
         children: [
@@ -36,11 +45,18 @@ class NewPetPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8),
             child: TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelStyle: PetlyTextTheme.body1,
+                icon: const Icon(Icons.pets),
+                hintText: "Pet's name",
+                border: const OutlineInputBorder(),
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 1.5,
+                  ),
+                ),
               ),
-              initialValue: 'Pet name',
             ),
           ),
           Padding(
@@ -49,11 +65,18 @@ class NewPetPage extends StatelessWidget {
               right: 8,
             ),
             child: TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelStyle: PetlyTextTheme.body1,
+                icon: const Icon(Icons.line_weight),
+                hintText: "Pet's Breed",
+                border: const OutlineInputBorder(),
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 1.5,
+                  ),
+                ),
               ),
-              initialValue: 'Pet Breed',
             ),
           ),
           Padding(
@@ -66,11 +89,19 @@ class NewPetPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      enabledBorder: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      icon: const Icon(Icons.date_range),
+                      hintText: "Pet's age",
+                      helperText: 'In years',
+                      labelStyle: PetlyTextTheme.body1,
+                      border: const OutlineInputBorder(),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.redAccent,
+                          width: 1.5,
+                        ),
+                      ),
                     ),
-                    initialValue: 'Age',
                   ),
                 ),
                 const SizedBox(
@@ -78,32 +109,50 @@ class NewPetPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      enabledBorder: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      hintText: "Pet's weight",
+                      helperText: 'In Kilograms',
+                      labelStyle: PetlyTextTheme.body1,
+                      border: const OutlineInputBorder(),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.redAccent,
+                          width: 1.5,
+                        ),
+                      ),
                     ),
-                    initialValue: 'Weight',
                   ),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(),
+              decoration: InputDecoration(
+                icon: const Icon(Icons.place),
+                hintText: 'Location',
+                labelStyle: PetlyTextTheme.body1,
+                border: const OutlineInputBorder(),
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 1.5,
+                  ),
+                ),
               ),
-              initialValue: 'Location',
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8, right: 8),
+            padding: const EdgeInsets.only(left: 16, right: 8),
             child: Row(
               children: [
-                const Text('Vacinatted'),
+                Text(
+                  'Vacinatted',
+                  style: PetlyTextTheme.body1,
+                ),
                 Switch(
+                  activeColor: Colors.redAccent,
                   value: true,
                   onChanged: (bool newValue) {},
                 ),
