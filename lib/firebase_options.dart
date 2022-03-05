@@ -61,7 +61,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '201887392803',
     projectId: 'petproject-bb183',
     storageBucket: 'petproject-bb183.appspot.com',
-    iosClientId: '201887392803-86rgvsui26mirfje2d3vmfj3v26q8kab.apps.googleusercontent.com',
+    iosClientId:
+        '201887392803-86rgvsui26mirfje2d3vmfj3v26q8kab.apps.googleusercontent.com',
     iosBundleId: 'com.petproject.app',
   );
 }
