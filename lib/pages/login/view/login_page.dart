@@ -20,7 +20,8 @@ class LoginPage extends StatelessWidget {
             navigator.pushNamed(PagesHelper.homePage);
           }
           if (state is LoginFailed) {
-            //TODO navigate to an error page
+            // ignore: todo
+            // TODO(potniatheron): Refirect users to a simple error page
           }
         },
         child: const LoginView(),
