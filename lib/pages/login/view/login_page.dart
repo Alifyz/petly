@@ -1,11 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
 import 'package:pet_project/common/widgets/background_video.dart';
 import 'package:pet_project/common/widgets/buttons.dart';
+import 'package:pet_project/pages/login/cubit/login_cubit.dart';
 import 'package:pet_project/pages/pages_helper.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final navigator = Navigator.of(context);
+    return BlocProvider(
+      create: (_) => LoginCubit(),
+      child: BlocListener<LoginCubit, LoginState>(
+        listener: (context, state) {
+          if (state is LoginSuccessful) {
+            navigator.pushNamed(PagesHelper.homePage);
+          }
+          if (state is LoginFailed) {
+            // ignore: todo
+            // TODO(potniatheron): Refirect users to a simple error page
+          }
+        },
+        child: const LoginView(),
+      ),
+    );
+  }
+}
+
+class LoginView extends StatelessWidget {
+  const LoginView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -75,9 +103,9 @@ class LoginPage extends StatelessWidget {
                     children: [
                       PetlyButton(
                         icon: const Icon(Icons.pets_sharp),
-                        onPressed: () => navigator.pushNamed(
-                          PagesHelper.homePage,
-                        ),
+                        onPressed: () {
+                          context.read<LoginCubit>().loginWithGoogle();
+                        },
                         title: 'Login with Google',
                         primary: true,
                       ),
