@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_positional_boolean_parameters
+
 import 'dart:io';
 
 class NewPetModel {
@@ -7,8 +9,8 @@ class NewPetModel {
     this.petAge,
     this.petWeight,
     this.petLocation,
-    this.tutor,
     this.petFile,
+    this.vaccinated,
   );
 
   final String petName;
@@ -16,18 +18,6 @@ class NewPetModel {
   final int petAge;
   final double petWeight;
   final String petLocation;
-  final PetTutor tutor;
-  final File petFile;
-}
-
-class PetTutor {
-  PetTutor(
-    this.displayName,
-    this.profileUri,
-    this.email,
-  );
-
-  final String displayName;
-  final String profileUri;
-  final String email;
+  final File? petFile;
+  final bool vaccinated;
 }
