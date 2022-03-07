@@ -34,7 +34,10 @@ class NewPetCubit extends Cubit<NewPetState> {
           user.photoURL,
         );
 
-        petsRepository.savePet(pet);
+        await petsRepository.savePet(pet);
+        emit(NewPetSuccess());
+      } else {
+        emit(NewPetFailure());
       }
     } catch (exception) {
       emit(NewPetFailure());
