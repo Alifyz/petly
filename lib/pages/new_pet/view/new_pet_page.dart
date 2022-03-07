@@ -26,19 +26,35 @@ class NewPetPage extends StatelessWidget {
         onPressed: () {},
         icon: const Icon(Icons.save),
         label: Text(
-          'Save',
+          'Save new pet',
           style: PetlyTextTheme.body1,
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
-            child: Align(
-              child: Container(
-                height: 128,
-                width: 128,
-                color: Colors.red,
+          GestureDetector(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 16,
+                left: 8,
+                right: 8,
+                bottom: 4,
+              ),
+              child: Align(
+                child: Container(
+                  height: 164,
+                  width: 164,
+                  decoration: BoxDecoration(
+                    color: Colors.redAccent.withAlpha(150),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.photo_camera,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),
