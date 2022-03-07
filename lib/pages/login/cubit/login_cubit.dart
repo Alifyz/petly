@@ -11,8 +11,13 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> loginWithGoogle() async {
     try {
-      final user = await _repository.signInWithGoogle();
-    } on Exception {
+      final authCredentials = await _repository.signInWithGoogle();
+      if (authCredentials.user != null) {
+        emit(LoginSuccessful());
+      } else {
+        emit(LoginFailed());
+      }
+    } catch (exception) {
       emit(LoginFailed());
     }
   }

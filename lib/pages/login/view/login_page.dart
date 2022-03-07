@@ -11,17 +11,19 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigator = Navigator.of(context);
     return BlocProvider(
       create: (_) => LoginCubit(),
-      child: BlocBuilder<LoginCubit, LoginState>(
-        builder: (context, state) {
-          if (state is LoginInitial) {
-            return const LoginView();
+      child: BlocListener<LoginCubit, LoginState>(
+        listener: (context, state) {
+          if (state is LoginSuccessful) {
+            navigator.pushNamed(PagesHelper.homePage);
           }
-          if (state is LoginSuccessful) {}
-          if (state is LoginFailed) {}
-          return Container();
+          if (state is LoginFailed) {
+            //TODO navigate to an error page
+          }
         },
+        child: const LoginView(),
       ),
     );
   }

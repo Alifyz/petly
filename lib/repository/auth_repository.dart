@@ -4,7 +4,11 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthRepository {
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
-    final googleUser = await GoogleSignIn().signIn();
+    final googleUser = await GoogleSignIn(
+      scopes: <String>[
+        'email',
+      ],
+    ).signIn();
 
     // Obtain the auth details from the request
     final googleAuth = await googleUser?.authentication;
