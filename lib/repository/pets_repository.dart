@@ -7,4 +7,14 @@ class PetsRepository {
           pet.toJson(),
         );
   }
+
+  Future<List<PetModel>> queryPets() async {
+    const pets = <PetModel>[];
+    final data = await FirebaseFirestore.instance.collection('pets').get();
+    for (final rawData in data.docs) {
+      final pet = PetModel.fromJson(rawData.data());
+      pets.add(pet);
+    }
+    return pets;
+  }
 }

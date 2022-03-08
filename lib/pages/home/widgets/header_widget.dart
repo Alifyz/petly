@@ -56,46 +56,61 @@ class UserHeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navigator = Navigator.of(context);
-    return Row(
-      children: [
-        CircleAvatar(
-          radius: 30,
-          foregroundImage: NetworkImage(netwworkImageAddressExample),
-        ),
-        const SizedBox(
-          width: 8,
-        ),
-        Text(
-          'Hello, Alifyz Pires',
-          style: PetlyTextTheme.subtitle.copyWith(
-            fontSize: 14,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.only(left: 8, right: 8),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 30,
+            foregroundImage: NetworkImage(netwworkImageAddressExample),
           ),
-        ),
-        Expanded(
-          child: Align(
-            alignment: Alignment.topRight,
-            child: GestureDetector(
-              onTap: () => navigator.pushNamed(PagesHelper.newPetPage),
-              child: Column(
-                children: [
-                  const Icon(
-                    Icons.pets,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    'New Pet',
-                    style: PetlyTextTheme.body1.copyWith(
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              ),
+          const SizedBox(
+            width: 8,
+          ),
+          Text(
+            'Hello, Alifyz Pires',
+            style: PetlyTextTheme.subtitle.copyWith(
+              fontSize: 14,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        )
-      ],
+          Expanded(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: GestureDetector(
+                onTap: () => navigator.pushNamed(PagesHelper.newPetPage),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 36),
+                  child: Container(
+                    width: 74,
+                    height: 74,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black12,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.pets,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'New Pet',
+                          style: PetlyTextTheme.body1.copyWith(
+                            color: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
