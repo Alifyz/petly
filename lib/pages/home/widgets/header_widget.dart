@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/helpers.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
@@ -5,9 +6,12 @@ import 'package:pet_project/pages/home/widgets/global_action_widget.dart';
 import 'package:pet_project/pages/pages_helper.dart';
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({
+  const HeaderWidget(
+    this.user, {
     Key? key,
   }) : super(key: key);
+
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +35,18 @@ class HeaderWidget extends StatelessWidget {
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 8,
                   vertical: 16,
                 ),
-                child: UserHeadline(),
+                child: UserHeadline(
+                  user.displayName,
+                  user.photoURL,
+                ),
               ),
-              PetActionRow()
+              const PetActionRow()
             ],
           ),
         )
@@ -49,53 +56,75 @@ class HeaderWidget extends StatelessWidget {
 }
 
 class UserHeadline extends StatelessWidget {
-  const UserHeadline({
+  const UserHeadline(
+    this.displayName,
+    this.photoUrl, {
     Key? key,
   }) : super(key: key);
+
+  final String? displayName;
+  final String? photoUrl;
 
   @override
   Widget build(BuildContext context) {
     final navigator = Navigator.of(context);
-    return Row(
-      children: [
-        CircleAvatar(
-          radius: 30,
-          foregroundImage: NetworkImage(netwworkImageAddressExample),
-        ),
-        const SizedBox(
-          width: 8,
-        ),
-        Text(
-          'Hello, Alifyz Pires',
-          style: PetlyTextTheme.subtitle.copyWith(
-            fontSize: 14,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Expanded(
-          child: Align(
-            alignment: Alignment.topRight,
-            child: GestureDetector(
-              onTap: () => navigator.pushNamed(PagesHelper.newPetPage),
-              child: Column(
-                children: [
-                  const Icon(
-                    Icons.pets,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    'New Pet',
-                    style: PetlyTextTheme.body1.copyWith(
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              ),
+    return Padding(
+      padding: const EdgeInsets.only(left: 8, right: 8),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 30,
+            foregroundImage: NetworkImage(
+              photoUrl ?? netwworkImageAddressExample,
             ),
           ),
-        )
-      ],
+          const SizedBox(
+            width: 8,
+          ),
+          Text(
+            'Hello, $displayName',
+            style: PetlyTextTheme.subtitle.copyWith(
+              fontSize: 14,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Expanded(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: GestureDetector(
+                onTap: () => navigator.pushNamed(PagesHelper.newPetPage),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 36),
+                  child: Container(
+                    width: 74,
+                    height: 74,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black12,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.pets,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'New Pet',
+                          style: PetlyTextTheme.body1.copyWith(
+                            color: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
