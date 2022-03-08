@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/helpers.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
@@ -5,9 +6,12 @@ import 'package:pet_project/pages/home/widgets/global_action_widget.dart';
 import 'package:pet_project/pages/pages_helper.dart';
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({
+  const HeaderWidget(
+    this.user, {
     Key? key,
   }) : super(key: key);
+
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +35,18 @@ class HeaderWidget extends StatelessWidget {
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 8,
                   vertical: 16,
                 ),
-                child: UserHeadline(),
+                child: UserHeadline(
+                  user.displayName,
+                  user.photoURL,
+                ),
               ),
-              PetActionRow()
+              const PetActionRow()
             ],
           ),
         )
@@ -49,9 +56,14 @@ class HeaderWidget extends StatelessWidget {
 }
 
 class UserHeadline extends StatelessWidget {
-  const UserHeadline({
+  const UserHeadline(
+    this.displayName,
+    this.photoUrl, {
     Key? key,
   }) : super(key: key);
+
+  final String? displayName;
+  final String? photoUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -62,13 +74,15 @@ class UserHeadline extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 30,
-            foregroundImage: NetworkImage(netwworkImageAddressExample),
+            foregroundImage: NetworkImage(
+              photoUrl ?? netwworkImageAddressExample,
+            ),
           ),
           const SizedBox(
             width: 8,
           ),
           Text(
-            'Hello, Alifyz Pires',
+            'Hello, $displayName',
             style: PetlyTextTheme.subtitle.copyWith(
               fontSize: 14,
               color: Colors.white,
