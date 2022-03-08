@@ -38,7 +38,11 @@ class _HomePageViewState extends State<HomePageView> {
       builder: (context, state) {
         if (state is HomeLoading) {
           return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
+            body: Center(
+              child: CircularProgressIndicator(
+                color: Colors.redAccent,
+              ),
+            ),
           );
         }
 
@@ -56,13 +60,9 @@ class _HomePageViewState extends State<HomePageView> {
                         right: 8,
                       ),
                       child: ListView(
-                        children: const [
-                          PetListItem(),
-                          PetListItem(),
-                          PetListItem(),
-                          PetListItem(),
-                          PetListItem(),
-                        ],
+                        children: state.pets
+                            .map((element) => PetListItem(element))
+                            .toList(),
                       ),
                     ),
                   )

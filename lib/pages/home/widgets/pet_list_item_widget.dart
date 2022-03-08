@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
+import 'package:pet_project/pages/new_pet/model/pet_model.dart';
 import 'package:pet_project/pages/pages_helper.dart';
 
 class PetListItem extends StatelessWidget {
-  const PetListItem({
+  const PetListItem(
+    this.model, {
     Key? key,
   }) : super(key: key);
+
+  final PetModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +29,20 @@ class PetListItem extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.only(right: 8),
                   child: Container(
-                    width: 56,
-                    height: 56,
-                    decoration: const BoxDecoration(
+                    width: 128,
+                    height: double.infinity,
+                    decoration: BoxDecoration(
                       color: Colors.red,
-                      shape: BoxShape.circle,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(model.petUri),
+                      ),
                     ),
                   ),
                 ),
@@ -41,12 +52,12 @@ class PetListItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Dog',
+                        model.petName,
                         style: PetlyTextTheme.subtitle
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Shiba Inu',
+                        model.petBreed,
                         style: PetlyTextTheme.subtitle.copyWith(fontSize: 12),
                       ),
                     ],
@@ -55,7 +66,7 @@ class PetListItem extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.all(12),
                   child: Icon(
-                    Icons.favorite,
+                    Icons.info_rounded,
                     color: Colors.pink,
                   ),
                 )
