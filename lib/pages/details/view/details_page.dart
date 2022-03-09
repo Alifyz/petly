@@ -1,6 +1,9 @@
+// ignore_for_file: omit_local_variable_types, cast_nullable_to_non_nullable
+
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/helpers.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
+import 'package:pet_project/pages/new_pet/model/pet_model.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({Key? key}) : super(key: key);
@@ -8,6 +11,9 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
+    final PetModel model =
+        ModalRoute.of(context)!.settings.arguments as PetModel;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pet Details'),
@@ -21,12 +27,13 @@ class DetailsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            width: double.infinity,
             height: mediaQuery.size.height * 0.5,
             color: Colors.red,
             child: Image(
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
               image: NetworkImage(
-                netwworkImageAddressExample,
+                model.petUri,
               ),
             ),
           ),
@@ -41,13 +48,13 @@ class DetailsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Pet Name',
+                  model.petName,
                   style: PetlyTextTheme.h1.copyWith(
                     fontSize: 21,
                   ),
                 ),
                 Text(
-                  '2 years old',
+                  '${model.petAge} years old',
                   style: PetlyTextTheme.headline.copyWith(
                     fontSize: 14,
                     color: Colors.black,
@@ -65,7 +72,7 @@ class DetailsPage extends StatelessWidget {
               bottom: 4,
             ),
             child: Text(
-              'Pet Breed',
+              model.petBreed,
               style: PetlyTextTheme.subtitle.copyWith(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
@@ -85,7 +92,7 @@ class DetailsPage extends StatelessWidget {
                   color: Colors.redAccent,
                 ),
                 Text(
-                  'São Paulo, BR',
+                  model.petLocation,
                   style: PetlyTextTheme.subtitle.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -117,7 +124,7 @@ class DetailsPage extends StatelessWidget {
                     child: Image(
                       fit: BoxFit.fill,
                       image: NetworkImage(
-                        netwworkImageAddressExample,
+                        model.tutorUri ?? netwworkImageAddressExample,
                       ),
                     ),
                   ),
@@ -128,7 +135,7 @@ class DetailsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Jhon Doe',
+                        model.tutorName ?? '',
                         style: PetlyTextTheme.h1.copyWith(
                           fontSize: 14,
                         ),
@@ -145,17 +152,6 @@ class DetailsPage extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 8,
-            ),
-            child: Text(
-              'Lore ipsum, lore, Lore ipsum, lor, Lore ipsum, lor',
-              style: PetlyTextTheme.body1,
-            ),
-          )
         ],
       ),
     );

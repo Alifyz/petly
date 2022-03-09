@@ -17,6 +17,7 @@ class PetListItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => navigator.pushNamed(
         PagesHelper.detailsPage,
+        arguments: model,
       ),
       child: Card(
         child: Padding(
