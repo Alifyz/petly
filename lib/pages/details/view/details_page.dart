@@ -18,9 +18,11 @@ class DetailsPage extends StatelessWidget {
 
     return BlocProvider(
       create: (context) => DetailsCubit(),
-      child: Builder(builder: (context) {
-        return DetailsPageView(mediaQuery: mediaQuery, model: model);
-      }),
+      child: Builder(
+        builder: (context) {
+          return DetailsPageView(mediaQuery: mediaQuery, model: model);
+        },
+      ),
     );
   }
 }
