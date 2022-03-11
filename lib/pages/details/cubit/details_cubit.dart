@@ -7,12 +7,14 @@ part 'details_state.dart';
 class DetailsCubit extends Cubit<DetailsState> {
   DetailsCubit() : super(DetailsInitial());
 
-  void openEmail(String email) {
+  void openEmail(String? email, String petName, String? tutorName) {
     final emailLaunchUri = Uri(
       scheme: 'mailto',
       path: email,
       query: encodeQueryParameters(<String, String>{
-        'subject': 'Example Subject & Symbols are allowed!'
+        'subject': 'Adopt $petName',
+        'body':
+            'Hi, $tutorName I would like to adopt $petName how can I proceed?'
       }),
     );
 
