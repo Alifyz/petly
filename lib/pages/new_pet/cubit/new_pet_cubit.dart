@@ -30,8 +30,9 @@ class NewPetCubit extends Cubit<NewPetState> {
           newPet.petLocation,
           displayUrl,
           newPet.vaccinated,
-          user!.displayName,
-          user.photoURL,
+          user?.displayName,
+          user?.photoURL,
+          user?.email,
         );
 
         await petsRepository.savePet(pet);
