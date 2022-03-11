@@ -14,6 +14,7 @@ class PetModel {
     this.vaccinated,
     this.tutorName,
     this.tutorUri,
+    this.tutorEmail,
   );
 
   final String petName;
@@ -25,6 +26,7 @@ class PetModel {
   final bool vaccinated;
   final String? tutorName;
   final String? tutorUri;
+  final String? tutorEmail;
 
   factory PetModel.fromJson(Map<String, dynamic> json) =>
       _$PetModelFromJson(json);

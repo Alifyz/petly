@@ -1,8 +1,10 @@
 // ignore_for_file: omit_local_variable_types, cast_nullable_to_non_nullable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pet_project/common/helpers.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
+import 'package:pet_project/pages/details/cubit/details_cubit.dart';
 import 'package:pet_project/pages/new_pet/model/pet_model.dart';
 
 class DetailsPage extends StatelessWidget {
@@ -14,12 +16,41 @@ class DetailsPage extends StatelessWidget {
     final PetModel model =
         ModalRoute.of(context)!.settings.arguments as PetModel;
 
+    return BlocProvider(
+      create: (context) => DetailsCubit(),
+      child: Builder(
+        builder: (context) {
+          return DetailsPageView(mediaQuery: mediaQuery, model: model);
+        },
+      ),
+    );
+  }
+}
+
+class DetailsPageView extends StatelessWidget {
+  const DetailsPageView({
+    Key? key,
+    required this.mediaQuery,
+    required this.model,
+  }) : super(key: key);
+
+  final MediaQueryData mediaQuery;
+  final PetModel model;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pet Details'),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          context.read<DetailsCubit>().openEmail(
+                model.tutorEmail,
+                model.petName,
+                model.tutorName,
+              );
+        },
         icon: const Icon(Icons.phone),
         label: const Text('Adopt'),
       ),
