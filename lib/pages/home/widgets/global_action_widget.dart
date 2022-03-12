@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
+import 'package:pet_project/pages/pages_helper.dart';
 
 class GlobalActionWidget extends StatelessWidget {
   const GlobalActionWidget({
@@ -13,7 +14,12 @@ class GlobalActionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigator = Navigator.of(context);
     return GestureDetector(
+      onTap: () => navigator.pushNamed(
+        PagesHelper.petListPage,
+        arguments: actionName,
+      ),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Container(

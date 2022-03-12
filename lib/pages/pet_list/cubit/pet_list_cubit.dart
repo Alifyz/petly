@@ -13,7 +13,7 @@ class PetListCubit extends Cubit<PetListState> {
   Future<void> queryPets(String? petType) async {
     try {
       emit(PetListLoading());
-      final queryType = petType ?? 'dogs';
+      final queryType = petType ?? 'Dogs';
       final pets = await repository.queryPetsByType(queryType);
 
       emit(PetListSuccess(pets));
