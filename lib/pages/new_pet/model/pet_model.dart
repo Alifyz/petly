@@ -15,6 +15,7 @@ class PetModel {
     this.tutorName,
     this.tutorUri,
     this.tutorEmail,
+    this.type,
   );
 
   final String petName;
@@ -27,6 +28,7 @@ class PetModel {
   final String? tutorName;
   final String? tutorUri;
   final String? tutorEmail;
+  final String type;
 
   factory PetModel.fromJson(Map<String, dynamic> json) =>
       _$PetModelFromJson(json);

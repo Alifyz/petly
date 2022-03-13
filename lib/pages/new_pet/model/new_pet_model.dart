@@ -11,6 +11,7 @@ class NewPetModel {
     this.petLocation,
     this.petFile,
     this.vaccinated,
+    this.type,
   );
 
   final String petName;
@@ -20,4 +21,5 @@ class NewPetModel {
   final String petLocation;
   final File? petFile;
   final bool vaccinated;
+  final String type;
 }
