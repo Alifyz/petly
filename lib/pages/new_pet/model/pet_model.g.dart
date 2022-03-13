@@ -17,6 +17,7 @@ PetModel _$PetModelFromJson(Map<String, dynamic> json) => PetModel(
       json['tutorName'] as String?,
       json['tutorUri'] as String?,
       json['tutorEmail'] as String?,
+      json['type'] as String,
     );
 
 Map<String, dynamic> _$PetModelToJson(PetModel instance) => <String, dynamic>{
@@ -30,4 +31,5 @@ Map<String, dynamic> _$PetModelToJson(PetModel instance) => <String, dynamic>{
       'tutorName': instance.tutorName,
       'tutorUri': instance.tutorUri,
       'tutorEmail': instance.tutorEmail,
+      'type': instance.type,
     };

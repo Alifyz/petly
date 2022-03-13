@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
-import 'package:pet_project/pages/pages_helper.dart';
 
-class GlobalActionWidget extends StatelessWidget {
-  const GlobalActionWidget({
+class PetTypeButton extends StatelessWidget {
+  const PetTypeButton({
     Key? key,
     required this.actionName,
     required this.actionImage,
+    required this.onSelected,
+    required this.currentAction,
   }) : super(key: key);
 
+  final String currentAction;
   final String actionName;
   final AssetImage actionImage;
+  final Function(String type) onSelected;
 
   @override
   Widget build(BuildContext context) {
-    final navigator = Navigator.of(context);
     return GestureDetector(
-      onTap: () => navigator.pushNamed(
-        PagesHelper.petListPage,
-        arguments: actionName,
+      onTap: () => onSelected(
+        actionName,
       ),
       child: Padding(
         padding: const EdgeInsets.all(8),
@@ -34,7 +35,8 @@ class GlobalActionWidget extends StatelessWidget {
                 offset: const Offset(0, 2),
               )
             ],
-            color: Colors.white,
+            color:
+                currentAction == actionName ? Colors.redAccent : Colors.white,
             borderRadius: const BorderRadius.all(
               Radius.circular(8),
             ),
@@ -46,12 +48,16 @@ class GlobalActionWidget extends StatelessWidget {
                 image: actionImage,
                 height: 24,
                 width: 24,
+                color:
+                    currentAction == actionName ? Colors.white : Colors.black,
               ),
               Text(
                 actionName,
                 style: PetlyTextTheme.subtitle.copyWith(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
+                  color:
+                      currentAction == actionName ? Colors.white : Colors.black,
                 ),
               ),
             ],

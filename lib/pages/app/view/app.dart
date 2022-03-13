@@ -11,6 +11,7 @@ import 'package:pet_project/pages/home/home.dart';
 import 'package:pet_project/pages/login/login.dart';
 import 'package:pet_project/pages/new_pet/new_pet.dart';
 import 'package:pet_project/pages/pages_helper.dart';
+import 'package:pet_project/pages/pet_list/pet_list.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -29,7 +30,8 @@ class App extends StatelessWidget {
         PagesHelper.loginPage: (context) => const LoginPage(),
         PagesHelper.homePage: (context) => const HomePage(),
         PagesHelper.detailsPage: (context) => const DetailsPage(),
-        PagesHelper.newPetPage: (context) => const NewPetPage()
+        PagesHelper.newPetPage: (context) => const NewPetPage(),
+        PagesHelper.petListPage: (context) => const PetListPage(),
       },
     );
   }

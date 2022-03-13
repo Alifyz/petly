@@ -19,4 +19,17 @@ class PetsRepository {
     }
     return pets;
   }
+
+  Future<List<PetModel>> queryPetsByType(String type) async {
+    final List<PetModel> pets = [];
+    final data = await FirebaseFirestore.instance
+        .collection('pets')
+        .where('type', isEqualTo: type)
+        .get();
+    for (final rawData in data.docs) {
+      final pet = PetModel.fromJson(rawData.data());
+      pets.add(pet);
+    }
+    return pets;
+  }
 }

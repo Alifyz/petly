@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pet_project/common/theme/text_theme.dart';
+import 'package:pet_project/common/widgets/pet_type_button.dart';
 import 'package:pet_project/pages/new_pet/cubit/new_pet_cubit.dart';
 import 'package:pet_project/pages/new_pet/model/new_pet_model.dart';
 import 'package:pet_project/pages/pages_helper.dart';
@@ -26,6 +27,7 @@ class _NewPetPageState extends State<NewPetPage> {
   final weightController = TextEditingController();
   final locationController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  String type = 'Dogs';
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +90,7 @@ class _NewPetPageState extends State<NewPetPage> {
                     locationController.text,
                     petImage,
                     vaccinated,
+                    type,
                   );
 
                   await context.read<NewPetCubit>().addNewPet(model);
@@ -143,6 +146,55 @@ class _NewPetPageState extends State<NewPetPage> {
                                 ),
                         ),
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8, bottom: 8),
+                    child: Center(
+                      child: Text(
+                        'Select Pet Type :)',
+                        style: PetlyTextTheme.subtitle,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        PetTypeButton(
+                          actionName: 'Dogs',
+                          currentAction: type,
+                          actionImage:
+                              const AssetImage('assets/images/dog.png'),
+                          onSelected: (newType) {
+                            setState(() {
+                              type = newType;
+                            });
+                          },
+                        ),
+                        PetTypeButton(
+                          actionName: 'Cats',
+                          currentAction: type,
+                          actionImage:
+                              const AssetImage('assets/images/cat.png'),
+                          onSelected: (newType) {
+                            setState(() {
+                              type = newType;
+                            });
+                          },
+                        ),
+                        PetTypeButton(
+                          actionName: 'Birds',
+                          currentAction: type,
+                          actionImage:
+                              const AssetImage('assets/images/bird.png'),
+                          onSelected: (newType) {
+                            setState(() {
+                              type = newType;
+                            });
+                          },
+                        )
+                      ],
                     ),
                   ),
                   Padding(
