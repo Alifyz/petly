@@ -37,7 +37,6 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final navigator = Navigator.of(context);
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -108,16 +107,6 @@ class LoginView extends StatelessWidget {
                         },
                         title: 'Login with Google',
                         primary: true,
-                      ),
-                      PetlyButton(
-                        icon: const Icon(
-                          Icons.account_circle,
-                          color: Colors.black,
-                        ),
-                        onPressed: () => navigator.pushNamed(
-                          PagesHelper.homePage,
-                        ),
-                        title: 'Login with Facebook',
                       ),
                       const SizedBox(
                         height: 24,

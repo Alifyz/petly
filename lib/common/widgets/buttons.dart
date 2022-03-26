@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 class PetlyButton extends StatelessWidget {
   const PetlyButton({
     Key? key,
-    this.title,
+    required this.title,
     this.primary = false,
     this.isLoading = false,
-    this.onPressed,
+    required this.onPressed,
     this.icon,
   }) : super(key: key);
 
-  final String? title;
+  final String title;
   final bool primary;
-  final VoidCallback? onPressed;
+  final VoidCallback onPressed;
   final bool isLoading;
   final Widget? icon;
 
