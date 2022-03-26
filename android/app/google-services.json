@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:201887392803:android:6eed181058fc4e1b4cfd96",
         "android_client_info": {
-          "package_name": "com.example.verygoodcore.pet_project"
+          "package_name": "com.verygoodcore.pet_project"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "201887392803-49bf5lk2v80hifh2kd7e6dn1tdi2mfff.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.verygoodcore.pet_project",
+            "package_name": "com.verygoodcore.pet_project",
             "certificate_hash": "48dcab308161226360604d2cc8f618c99749c0a2"
           }
         },
