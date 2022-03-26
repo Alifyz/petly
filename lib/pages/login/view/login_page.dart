@@ -109,16 +109,6 @@ class LoginView extends StatelessWidget {
                         title: 'Login with Google',
                         primary: true,
                       ),
-                      PetlyButton(
-                        icon: const Icon(
-                          Icons.account_circle,
-                          color: Colors.black,
-                        ),
-                        onPressed: () => navigator.pushNamed(
-                          PagesHelper.homePage,
-                        ),
-                        title: 'Login with Facebook',
-                      ),
                       const SizedBox(
                         height: 24,
                       ),
