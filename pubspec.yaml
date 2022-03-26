@@ -43,3 +43,9 @@ flutter:
     - assets/images/bird.png
     - assets/images/cat.png
     - assets/images/dog.png
+
+flutter_icons:
+  image_path_android: "assets/images/android-icon.png"
+  image_path_ios: "assets/images/ios-icon.png"
+  android: true 
+  ios: true 
