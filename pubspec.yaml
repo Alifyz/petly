@@ -15,6 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  flutter_launcher_icons: ^0.9.2
   google_fonts: ^2.2.0
   google_sign_in: ^5.2.4
   image_picker: ^0.8.4+10
@@ -42,3 +43,9 @@ flutter:
     - assets/images/bird.png
     - assets/images/cat.png
     - assets/images/dog.png
+
+flutter_icons:
+  image_path_android: "assets/images/android-icon.png"
+  image_path_ios: "assets/images/ios-icon.png"
+  android: true 
+  ios: true 
