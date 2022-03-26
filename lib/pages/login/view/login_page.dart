@@ -5,6 +5,7 @@ import 'package:pet_project/common/widgets/background_video.dart';
 import 'package:pet_project/common/widgets/buttons.dart';
 import 'package:pet_project/pages/login/cubit/login_cubit.dart';
 import 'package:pet_project/pages/pages_helper.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -111,11 +112,15 @@ class LoginView extends StatelessWidget {
                       const SizedBox(
                         height: 24,
                       ),
-                      Text(
-                        'Privacy Policy and Terms and Conditions',
-                        style: PetlyTextTheme.headline.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () =>
+                            launch('https://petproject-bb183.web.app/'),
+                        child: Text(
+                          'Privacy Policy and Terms and Conditions',
+                          style: PetlyTextTheme.headline.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
