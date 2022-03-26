@@ -9,7 +9,51 @@
       "client_info": {
         "mobilesdk_app_id": "1:201887392803:android:6eed181058fc4e1b4cfd96",
         "android_client_info": {
-          "package_name": "com.example.verygoodcore.pet_project"
+          "package_name": "com.verygoodcore.pet_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201887392803-49bf5lk2v80hifh2kd7e6dn1tdi2mfff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.verygoodcore.pet_project",
+            "certificate_hash": "48dcab308161226360604d2cc8f618c99749c0a2"
+          }
+        },
+        {
+          "client_id": "201887392803-847ff63hsk6sl1h8km5pcq8n0uddkrfq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr6YGiNXnTD418-CcOpcz6UqoD7XY8MAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201887392803-847ff63hsk6sl1h8km5pcq8n0uddkrfq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "201887392803-86rgvsui26mirfje2d3vmfj3v26q8kab.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.petproject.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201887392803:android:e7c94f4f8c7f58414cfd96",
+        "android_client_info": {
+          "package_name": "com.verygoodcore.pet_project"
         }
       },
       "oauth_client": [

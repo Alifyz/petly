@@ -50,7 +50,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.verygoodcore.pet_project"
+        applicationId "com.verygoodcore.pet_project"
         minSdkVersion 19
         targetSdkVersion 31
         multiDexEnabled true
@@ -83,23 +83,23 @@ android {
     }
 
     flavorDimensions "default"
-    productFlavors { 
-        production {
-            dimension "default"
-            applicationIdSuffix ""
-            manifestPlaceholders = [appName: "Pet Project"]
-        }
-        staging {
-            dimension "default"
-            applicationIdSuffix ".stg"
-            manifestPlaceholders = [appName: "[STG] Pet Project"]
-        }        
-        development {
-            dimension "default"
-            applicationIdSuffix ""
-            manifestPlaceholders = [appName: "[DEV] Pet Project"]
-        }
-    }
+    // productFlavors { 
+    //     production {
+    //         dimension "default"
+    //         applicationIdSuffix ""
+    //         manifestPlaceholders = [appName: "Pet Project"]
+    //     }
+    //     staging {
+    //         dimension "default"
+    //         applicationIdSuffix ""
+    //         manifestPlaceholders = [appName: "[STG] Pet Project"]
+    //     }        
+    //     development {
+    //         dimension "default"
+    //         applicationIdSuffix ""
+    //         manifestPlaceholders = [appName: "[DEV] Pet Project"]
+    //     }
+    // }
 
     buildTypes {
         release {
