@@ -19,9 +19,11 @@ dependencies:
   google_sign_in: ^5.2.4
   image_picker: ^0.8.4+10
   json_serializable: ^6.1.4
+  mockito: ^5.1.0
   permission_handler: ^9.2.0
   url_launcher: ^6.0.20
   video_player: ^2.2.13
+  
 
 dev_dependencies:
   bloc_test: ^9.0.2
