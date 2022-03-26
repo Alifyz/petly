@@ -1,7 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pet_project/pages/details/cubit/details_cubit.dart';
-import 'package:pet_project/pages/home/cubit/home_cubit.dart';
 
 class DetailsCubitMock extends MockCubit<DetailsState> implements DetailsCubit {
 }

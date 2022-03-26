@@ -37,7 +37,6 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final navigator = Navigator.of(context);
     return Scaffold(
       body: SafeArea(
         child: Stack(
